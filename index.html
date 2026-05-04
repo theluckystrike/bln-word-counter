@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter & Character Counter — Free Online Text Analysis | BeLikeNative</title>
+<meta name="description" content="Free online word counter, character counter, and readability analyzer. Get instant word count, character count, sentence count, reading time, keyword density, Flesch-Kincaid score, and ESL difficulty rating.">
+<meta name="keywords" content="word counter, character counter, online word counter, word count tool, readability checker, ESL writing tool">
+<meta name="author" content="BeLikeNative">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://theluckystrike.github.io/bln-word-counter/">
+<meta property="og:title" content="Word Counter & Character Counter — Free Online Tool">
+<meta property="og:description" content="Instant word count, character count, readability score, and ESL difficulty analysis. No signup required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theluckystrike.github.io/bln-word-counter/">
+<meta property="og:site_name" content="BeLikeNative Word Counter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Word Counter & Character Counter — Free Online Tool">
+<meta name="twitter:description" content="Instant word count, character count, readability score, and ESL difficulty analysis.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>W</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word Counter & Character Counter",
+  "url": "https://theluckystrike.github.io/bln-word-counter/",
+  "description": "Free online word counter, character counter, and readability analyzer with ESL difficulty scoring.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "BeLikeNative", "url": "https://belikenative.com" }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#2563eb;--accent:#10b981;--bg:#f8fafc;--surface:#ffffff;--text:#1e293b;--text-muted:#64748b;--border:#e2e8f0;--radius:8px;--shadow:0 1px 3px rgba(0,0,0,0.1)}
+@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--surface:#1e293b;--text:#e2e8f0;--text-muted:#94a3b8;--border:#334155;--shadow:0 1px 3px rgba(0,0,0,0.3)}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.container{max-width:900px;margin:0 auto;padding:1.5rem;width:100%}
+header{text-align:center;padding:2rem 0 1rem}
+h1{font-size:2rem;color:var(--primary);margin-bottom:0.25rem}
+.subtitle{color:var(--text-muted);font-size:0.95rem}
+.subtitle a{color:var(--primary);text-decoration:none}
+textarea{width:100%;min-height:200px;padding:1rem;border:2px solid var(--border);border-radius:var(--radius);font-size:1rem;font-family:inherit;background:var(--surface);color:var(--text);resize:vertical;transition:border-color 0.2s}
+textarea:focus{outline:none;border-color:var(--primary)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;margin:1.5rem 0}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center;box-shadow:var(--shadow)}
+.stat-value{font-size:1.75rem;font-weight:700;color:var(--primary)}
+.stat-label{font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:0.25rem}
+.section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin:1rem 0;box-shadow:var(--shadow)}
+.section h2{font-size:1.1rem;margin-bottom:0.75rem;color:var(--text)}
+.keyword-row{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid var(--border)}
+.keyword-row:last-child{border-bottom:none}
+.keyword-word{font-weight:500}
+.keyword-bar{flex:1;margin:0 1rem;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.keyword-bar-fill{height:100%;background:var(--primary);border-radius:3px;transition:width 0.3s}
+.keyword-pct{font-size:0.85rem;color:var(--text-muted);min-width:40px;text-align:right}
+.score-badge{display:inline-block;padding:0.25rem 0.75rem;border-radius:12px;font-weight:600;font-size:0.9rem}
+.score-easy{background:#d1fae5;color:#065f46}
+.score-medium{background:#fef3c7;color:#92400e}
+.score-hard{background:#fee2e2;color:#991b1b}
+@media(prefers-color-scheme:dark){.score-easy{background:#064e3b;color:#6ee7b7}.score-medium{background:#78350f;color:#fcd34d}.score-hard{background:#7f1d1d;color:#fca5a5}}
+.cta-box{background:linear-gradient(135deg,#eff6ff,#ecfdf5);border:1px solid var(--primary);border-radius:var(--radius);padding:1.25rem;margin:1.5rem 0;text-align:center}
+@media(prefers-color-scheme:dark){.cta-box{background:linear-gradient(135deg,#1e3a5f,#1e3b3b)}}
+.cta-box p{margin-bottom:0.75rem;font-size:0.95rem}
+.cta-box a{display:inline-block;background:var(--primary);color:#fff;padding:0.5rem 1.25rem;border-radius:var(--radius);text-decoration:none;font-weight:600;transition:opacity 0.2s}
+.cta-box a:hover{opacity:0.9}
+footer{text-align:center;padding:2rem 0 1rem;color:var(--text-muted);font-size:0.85rem;margin-top:auto}
+footer a{color:var(--primary);text-decoration:none}
+.esl-suggestions{margin-top:0.75rem;font-size:0.9rem}
+.esl-suggestions li{margin:0.3rem 0;list-style:none;padding-left:1.2rem;position:relative}
+.esl-suggestions li::before{content:"\2192";position:absolute;left:0;color:var(--primary)}
+@media(max-width:600px){h1{font-size:1.5rem}.stats-grid{grid-template-columns:repeat(2,1fr)}.container{padding:1rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Word Counter</h1>
+<p class="subtitle">by <a href="https://belikenative.com" target="_blank" rel="noopener">BeLikeNative</a></p>
+</header>
+<main>
+<textarea id="textInput" placeholder="Paste or type your text here to get instant word count, character count, readability score, and more..." aria-label="Text input for word counting and analysis"></textarea>
+<div class="stats-grid" id="statsGrid">
+<div class="stat-card"><div class="stat-value" id="wordCount">0</div><div class="stat-label">Words</div></div>
+<div class="stat-card"><div class="stat-value" id="charCount">0</div><div class="stat-label">Characters</div></div>
+<div class="stat-card"><div class="stat-value" id="charNoSpaceCount">0</div><div class="stat-label">Chars (no spaces)</div></div>
+<div class="stat-card"><div class="stat-value" id="sentenceCount">0</div><div class="stat-label">Sentences</div></div>
+<div class="stat-card"><div class="stat-value" id="paragraphCount">0</div><div class="stat-label">Paragraphs</div></div>
+<div class="stat-card"><div class="stat-value" id="readingTime">0 min</div><div class="stat-label">Reading Time</div></div>
+<div class="stat-card"><div class="stat-value" id="speakingTime">0 min</div><div class="stat-label">Speaking Time</div></div>
+</div>
+<div class="section" id="readabilitySection" style="display:none">
+<h2>Readability</h2>
+<p>Flesch-Kincaid Grade: <strong id="fkGrade">—</strong> <span class="score-badge" id="fkBadge"></span></p>
+<p style="margin-top:0.5rem;font-size:0.9rem;color:var(--text-muted)" id="fkExplain"></p>
+</div>
+<div class="section" id="eslSection" style="display:none">
+<h2>ESL Difficulty Score</h2>
+<p>Difficulty: <strong id="eslScore">—</strong> / 100 <span class="score-badge" id="eslBadge"></span></p>
+<ul class="esl-suggestions" id="eslSuggestions"></ul>
+</div>
+<div class="section" id="keywordSection" style="display:none">
+<h2>Top Keywords</h2>
+<div id="keywordList"></div>
+</div>
+<div class="cta-box">
+<p>Writing in English as a second language? <strong>BeLikeNative</strong> checks your grammar and tone as you type — everywhere on the web.</p>
+<a href="https://belikenative.com" target="_blank" rel="noopener">Try Free &rarr;</a>
+</div>
+</main>
+</div>
+<footer>
+<p>&copy; 2026 <a href="https://belikenative.com" target="_blank" rel="noopener">BeLikeNative</a> — Free writing tools for everyone</p>
+</footer>
+<script>
+(function() {
+  "use strict";
+
+  var MAX_WORDS = 100000;
+  var MAX_KEYWORDS = 10;
+  var DEBOUNCE_MS = 300;
+  var READING_WPM = 238;
+  var SPEAKING_WPM = 150;
+
+  var STOP_WORDS = new Set(["the","a","an","and","or","but","in","on","at","to",
+    "for","of","with","by","is","it","this","that","was","are","be","have","has",
+    "had","not","no","do","does","did","will","would","could","should","may",
+    "might","shall","can","from","as","if","then","than","so","its","his","her",
+    "my","your","our","their","we","they","he","she","i","me","him","us","them",
+    "what","which","who","whom","how","when","where","why","all","each","every",
+    "both","few","more","most","other","some","such","only","own","same","too",
+    "very","just","because","about","up","out","into","over","after","been","being"]);
+
+  var COMPLEX_WORDS_MAP = {"utilize":"use","commence":"start","terminate":"end",
+    "subsequently":"then","nevertheless":"still","furthermore":"also",
+    "approximately":"about","facilitate":"help","implement":"do",
+    "demonstrate":"show","sufficient":"enough","insufficient":"not enough",
+    "regarding":"about","therefore":"so","however":"but","additional":"more",
+    "numerous":"many","purchase":"buy","obtain":"get","indicate":"show",
+    "significant":"big","accomplish":"do","acknowledge":"admit",
+    "anticipate":"expect","component":"part","comprehend":"understand",
+    "considerable":"large","consequently":"so","constitute":"make up",
+    "endeavor":"try","equivalent":"equal","establish":"set up",
+    "fundamental":"basic","generate":"make","immediately":"now",
+    "preliminary":"early","previously":"before","primarily":"mainly",
+    "probability":"chance","subsequent":"next","sufficient":"enough"};
+
+  var timer = null;
+  var inputEl = document.getElementById("textInput");
+
+  function assertDefined(val, name) {
+    if (val === undefined || val === null) {
+      throw new Error("Assertion failed: " + name + " is not defined");
+    }
+  }
+
+  function assertNumber(val, name) {
+    if (typeof val !== "number" || isNaN(val)) {
+      throw new Error("Assertion failed: " + name + " is not a number");
+    }
+  }
+
+  function assertString(val, name) {
+    if (typeof val !== "string") {
+      throw new Error("Assertion failed: " + name + " is not a string");
+    }
+  }
+
+  function assertNonNegative(val, name) {
+    if (val < 0) {
+      throw new Error("Assertion failed: " + name + " is negative");
+    }
+  }
+
+  function countWords(text) {
+    assertString(text, "countWords.text");
+    assertDefined(text, "countWords.text");
+    var trimmed = text.trim();
+    if (trimmed.length === 0) { return 0; }
+    var words = trimmed.split(/\s+/);
+    var count = Math.min(words.length, MAX_WORDS);
+    assertNonNegative(count, "countWords.count");
+    return count;
+  }
+
+  function getWords(text) {
+    assertString(text, "getWords.text");
+    assertDefined(text, "getWords.text");
+    var trimmed = text.trim();
+    if (trimmed.length === 0) { return []; }
+    var words = trimmed.split(/\s+/);
+    var bounded = words.slice(0, MAX_WORDS);
+    assertDefined(bounded, "getWords.bounded");
+    return bounded;
+  }
+
+  function countChars(text) {
+    assertString(text, "countChars.text");
+    assertDefined(text, "countChars.text");
+    var result = text.length;
+    assertNonNegative(result, "countChars.result");
+    return result;
+  }
+
+  function countCharsNoSpaces(text) {
+    assertString(text, "countCharsNoSpaces.text");
+    assertDefined(text, "countCharsNoSpaces.text");
+    var result = text.replace(/\s/g, "").length;
+    assertNonNegative(result, "countCharsNoSpaces.result");
+    return result;
+  }
+
+  function countSentences(text) {
+    assertString(text, "countSentences.text");
+    assertDefined(text, "countSentences.text");
+    var trimmed = text.trim();
+    if (trimmed.length === 0) { return 0; }
+    var matches = trimmed.match(/[.!?]+/g);
+    var count = matches ? matches.length : 0;
+    assertNonNegative(count, "countSentences.count");
+    return count;
+  }
+
+  function countParagraphs(text) {
+    assertString(text, "countParagraphs.text");
+    assertDefined(text, "countParagraphs.text");
+    var trimmed = text.trim();
+    if (trimmed.length === 0) { return 0; }
+    var paras = trimmed.split(/\n\s*\n/);
+    var count = paras.filter(function(p) { return p.trim().length > 0; }).length;
+    assertNonNegative(count, "countParagraphs.count");
+    return count;
+  }
+
+  function calcReadingTime(wordCount) {
+    assertNumber(wordCount, "calcReadingTime.wordCount");
+    assertNonNegative(wordCount, "calcReadingTime.wordCount");
+    var minutes = Math.ceil(wordCount / READING_WPM);
+    assertNonNegative(minutes, "calcReadingTime.minutes");
+    return minutes;
+  }
+
+  function calcSpeakingTime(wordCount) {
+    assertNumber(wordCount, "calcSpeakingTime.wordCount");
+    assertNonNegative(wordCount, "calcSpeakingTime.wordCount");
+    var minutes = Math.ceil(wordCount / SPEAKING_WPM);
+    assertNonNegative(minutes, "calcSpeakingTime.minutes");
+    return minutes;
+  }
+
+  function countSyllables(word) {
+    assertString(word, "countSyllables.word");
+    assertDefined(word, "countSyllables.word");
+    var w = word.toLowerCase().replace(/[^a-z]/g, "");
+    if (w.length <= 2) { return 1; }
+    w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, "");
+    w = w.replace(/^y/, "");
+    var vowelGroups = w.match(/[aeiouy]{1,2}/g);
+    var count = vowelGroups ? vowelGroups.length : 1;
+    assertNonNegative(count, "countSyllables.count");
+    return Math.max(1, count);
+  }
+
+  function calcFleschKincaid(words, sentences, text) {
+    assertDefined(words, "calcFK.words");
+    assertNumber(sentences, "calcFK.sentences");
+    if (words.length === 0 || sentences === 0) { return null; }
+    var totalSyllables = 0;
+    var limit = Math.min(words.length, MAX_WORDS);
+    for (var i = 0; i < limit; i++) {
+      totalSyllables += countSyllables(words[i]);
+    }
+    var wc = words.length;
+    var grade = 0.39 * (wc / sentences) + 11.8 * (totalSyllables / wc) - 15.59;
+    var result = Math.round(grade * 10) / 10;
+    assertNumber(result, "calcFK.result");
+    return result;
+  }
+
+  function getTopKeywords(words) {
+    assertDefined(words, "getTopKeywords.words");
+    assertDefined(MAX_KEYWORDS, "getTopKeywords.MAX_KEYWORDS");
+    var freq = {};
+    var limit = Math.min(words.length, MAX_WORDS);
+    for (var i = 0; i < limit; i++) {
+      var w = words[i].toLowerCase().replace(/[^a-z']/g, "");
+      if (w.length < 3) { continue; }
+      if (STOP_WORDS.has(w)) { continue; }
+      freq[w] = (freq[w] || 0) + 1;
+    }
+    var entries = Object.keys(freq).map(function(k) {
+      return { word: k, count: freq[k] };
+    });
+    entries.sort(function(a, b) { return b.count - a.count; });
+    var result = entries.slice(0, MAX_KEYWORDS);
+    assertDefined(result, "getTopKeywords.result");
+    return result;
+  }
+
+  function calcESLDifficulty(words) {
+    assertDefined(words, "calcESL.words");
+    assertDefined(COMPLEX_WORDS_MAP, "calcESL.map");
+    if (words.length === 0) { return { score: 0, suggestions: [] }; }
+    var complexCount = 0;
+    var longWordCount = 0;
+    var suggestions = [];
+    var seen = new Set();
+    var limit = Math.min(words.length, MAX_WORDS);
+    for (var i = 0; i < limit; i++) {
+      var w = words[i].toLowerCase().replace(/[^a-z]/g, "");
+      if (w.length > 8) { longWordCount++; }
+      if (COMPLEX_WORDS_MAP[w] && !seen.has(w)) {
+        seen.add(w);
+        complexCount++;
+        if (suggestions.length < MAX_KEYWORDS) {
+          suggestions.push('"' + w + '" \u2192 "' + COMPLEX_WORDS_MAP[w] + '"');
+        }
+      }
+    }
+    var avgLen = words.reduce(function(s, w) { return s + w.length; }, 0) / words.length;
+    var syllableAvg = 0;
+    for (var j = 0; j < limit; j++) {
+      syllableAvg += countSyllables(words[j]);
+    }
+    syllableAvg = syllableAvg / words.length;
+    var score = Math.min(100, Math.round(
+      (complexCount * 5) + (longWordCount / words.length * 40) +
+      (avgLen > 5 ? (avgLen - 5) * 8 : 0) + (syllableAvg > 1.5 ? (syllableAvg - 1.5) * 20 : 0)
+    ));
+    assertNumber(score, "calcESL.score");
+    assertNonNegative(score, "calcESL.score");
+    return { score: score, suggestions: suggestions };
+  }
+
+  function updateDOM(id, value) {
+    assertString(id, "updateDOM.id");
+    assertDefined(value, "updateDOM.value");
+    var el = document.getElementById(id);
+    if (el) { el.textContent = value; }
+  }
+
+  function showSection(id, show) {
+    assertString(id, "showSection.id");
+    assertDefined(show, "showSection.show");
+    var el = document.getElementById(id);
+    if (el) { el.style.display = show ? "block" : "none"; }
+  }
+
+  function renderKeywords(keywords, totalWords) {
+    assertDefined(keywords, "renderKeywords.keywords");
+    assertNumber(totalWords, "renderKeywords.totalWords");
+    var container = document.getElementById("keywordList");
+    if (!container) { return; }
+    container.innerHTML = "";
+    var limit = Math.min(keywords.length, MAX_KEYWORDS);
+    for (var i = 0; i < limit; i++) {
+      var pct = ((keywords[i].count / totalWords) * 100).toFixed(1);
+      var row = document.createElement("div");
+      row.className = "keyword-row";
+      row.innerHTML = '<span class="keyword-word">' + keywords[i].word +
+        ' <small>(' + keywords[i].count + ')</small></span>' +
+        '<div class="keyword-bar"><div class="keyword-bar-fill" style="width:' +
+        Math.min(100, pct * 10) + '%"></div></div>' +
+        '<span class="keyword-pct">' + pct + '%</span>';
+      container.appendChild(row);
+    }
+  }
+
+  function getBadgeClass(score, type) {
+    assertDefined(type, "getBadgeClass.type");
+    assertNumber(score, "getBadgeClass.score");
+    if (type === "fk") {
+      if (score <= 8) { return "score-easy"; }
+      if (score <= 12) { return "score-medium"; }
+      return "score-hard";
+    }
+    if (score <= 30) { return "score-easy"; }
+    if (score <= 60) { return "score-medium"; }
+    return "score-hard";
+  }
+
+  function getBadgeLabel(score, type) {
+    assertDefined(type, "getBadgeLabel.type");
+    assertNumber(score, "getBadgeLabel.score");
+    if (type === "fk") {
+      if (score <= 6) { return "Easy"; }
+      if (score <= 8) { return "Fairly Easy"; }
+      if (score <= 12) { return "Moderate"; }
+      if (score <= 16) { return "Difficult"; }
+      return "Very Difficult";
+    }
+    if (score <= 20) { return "Beginner Friendly"; }
+    if (score <= 40) { return "Easy"; }
+    if (score <= 60) { return "Intermediate"; }
+    if (score <= 80) { return "Advanced"; }
+    return "Very Difficult";
+  }
+
+  function renderESL(eslResult) {
+    assertDefined(eslResult, "renderESL.eslResult");
+    assertNumber(eslResult.score, "renderESL.score");
+    updateDOM("eslScore", String(eslResult.score));
+    var badge = document.getElementById("eslBadge");
+    if (badge) {
+      badge.textContent = getBadgeLabel(eslResult.score, "esl");
+      badge.className = "score-badge " + getBadgeClass(eslResult.score, "esl");
+    }
+    var list = document.getElementById("eslSuggestions");
+    if (!list) { return; }
+    list.innerHTML = "";
+    var limit = Math.min(eslResult.suggestions.length, MAX_KEYWORDS);
+    for (var i = 0; i < limit; i++) {
+      var li = document.createElement("li");
+      li.textContent = eslResult.suggestions[i];
+      list.appendChild(li);
+    }
+  }
+
+  function analyze() {
+    var text = inputEl.value || "";
+    assertString(text, "analyze.text");
+    assertDefined(inputEl, "analyze.inputEl");
+    var words = getWords(text);
+    var wc = countWords(text);
+    var cc = countChars(text);
+    var ccns = countCharsNoSpaces(text);
+    var sc = countSentences(text);
+    var pc = countParagraphs(text);
+    var rt = calcReadingTime(wc);
+    var st = calcSpeakingTime(wc);
+
+    updateDOM("wordCount", String(wc));
+    updateDOM("charCount", String(cc));
+    updateDOM("charNoSpaceCount", String(ccns));
+    updateDOM("sentenceCount", String(sc));
+    updateDOM("paragraphCount", String(pc));
+    updateDOM("readingTime", rt + " min");
+    updateDOM("speakingTime", st + " min");
+
+    var hasContent = wc > 0;
+    showSection("readabilitySection", hasContent && sc > 0);
+    showSection("eslSection", hasContent);
+    showSection("keywordSection", hasContent);
+
+    if (hasContent && sc > 0) {
+      var fk = calcFleschKincaid(words, sc, text);
+      if (fk !== null) {
+        updateDOM("fkGrade", String(fk));
+        var fkBadge = document.getElementById("fkBadge");
+        if (fkBadge) {
+          fkBadge.textContent = getBadgeLabel(fk, "fk");
+          fkBadge.className = "score-badge " + getBadgeClass(fk, "fk");
+        }
+        var explain = document.getElementById("fkExplain");
+        if (explain) {
+          explain.textContent = "Grade " + fk + " means this text is readable by a typical " +
+            (fk <= 6 ? "6th grader" : fk <= 8 ? "8th grader" : fk <= 12 ? "high schooler" : "college student") + ".";
+        }
+      }
+    }
+    if (hasContent) {
+      var keywords = getTopKeywords(words);
+      renderKeywords(keywords, wc);
+      var eslResult = calcESLDifficulty(words);
+      renderESL(eslResult);
+    }
+  }
+
+  function debounce() {
+    assertDefined(inputEl, "debounce.inputEl");
+    assertNumber(DEBOUNCE_MS, "debounce.DEBOUNCE_MS");
+    if (timer !== null) { clearTimeout(timer); }
+    timer = setTimeout(function() { analyze(); timer = null; }, DEBOUNCE_MS);
+  }
+
+  inputEl.addEventListener("input", debounce);
+  analyze();
+})();
+</script>
+</body>
+</html>
